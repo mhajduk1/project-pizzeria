@@ -74,7 +74,40 @@
 
       /*add element to menu */
       menuContainer.appendChild(thisProduct.element);
+    }
+    initAccordin(){
+      const thisProduct = this;
 
+      /* find the clickable trigger (the element that should react to clicking) */
+      const buttonTest = document.getElementById('button-test');
+
+      /* START: click event listener to trigger */
+      buttonTest.addEventListener('click', function(){
+        console.log('clicked');
+      });
+
+      /* prevent default action for event */
+      event.preventDefault();
+
+      /* toggle active class on element of thisProduct */
+      thisProduct.classList.add('.active');
+      
+      /* find all active products */
+      const activeProducts = document.querySelectorAll('.active');
+
+      /* START LOOP: for each active product */
+      for(let product in activeProducts){
+      /* START: if the active product isn't the element of thisProduct */
+        if(product != thisProduct){
+
+          /* remove class active for the active product */
+          product.classList.remove('.active');
+
+        /* END: if the active product isn't the element of thisProduct */
+        }
+      /* END LOOP: for each active product */
+      }
+    /* END: click event listener to trigger */
     }
   }
 
