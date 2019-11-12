@@ -59,6 +59,7 @@
       thisProduct.id = id;
       thisProduct.data = data;
       thisProduct.renderInMenu();
+      thisProduct.initAccordion();
       console.log('new Product', thisProduct);
     }
     renderInMenu(){
@@ -75,7 +76,7 @@
       /*add element to menu */
       menuContainer.appendChild(thisProduct.element);
     }
-    initAccordin(){
+    initAccordion(){
       const thisProduct = this;
 
       /* find the clickable trigger (the element that should react to clicking) */
@@ -90,18 +91,19 @@
       event.preventDefault();
 
       /* toggle active class on element of thisProduct */
-      thisProduct.classList.add('.active');
+      thisProduct.element.add('.toggle');
       
       /* find all active products */
-      const activeProducts = document.querySelectorAll('.active');
+      const activeProducts = document.querySelectorAll('.toggle');
 
       /* START LOOP: for each active product */
       for(let product in activeProducts){
-      /* START: if the active product isn't the element of thisProduct */
+
+        /* START: if the active product isn't the element of thisProduct */
         if(product != thisProduct){
 
           /* remove class active for the active product */
-          product.classList.remove('.active');
+          product.element.remove('.toggle');
 
         /* END: if the active product isn't the element of thisProduct */
         }
