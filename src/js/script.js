@@ -80,7 +80,7 @@
       const thisProduct = this;
 
       /* find the clickable trigger (the element that should react to clicking) */
-      const buttonTest = document.getElementById('button-test');
+      const buttonTest = document.getElementById('.product__header');
 
       /* START: click event listener to trigger */
       buttonTest.addEventListener('click', function(){
