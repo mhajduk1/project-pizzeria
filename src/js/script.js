@@ -79,11 +79,9 @@
     initAccordion(){
       const thisProduct = this;
       console.log(thisProduct);
-      /* find the clickable trigger (the element that should react to clicking) */
-      const accordionBtn = document.querySelector(select.menuProduct.clickable);
 
       /* START: click event listener to trigger */
-      accordionBtn.addEventListener('click', function(event){
+      thisProduct.element.addEventListener('click', function(event){
 
         /* prevent default action for event */
         event.preventDefault();
