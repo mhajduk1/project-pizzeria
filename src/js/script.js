@@ -176,23 +176,17 @@
             /* END ELSE IF: if option is not selected and option is default */
             }
 
-            const activeImages = thisProduct.imageWrapper.querySelectorAll('.' + paramId + '-' + optionId);
+            const activeImage = thisProduct.imageWrapper.querySelector('.' + paramId + '-' + optionId);
 
-            if(optionSelected && activeImages){
+            if(activeImage && optionSelected){
               
-              for(let activeImage of activeImages){
+              activeImage.classList.add('active');
 
-                activeImage.classList.add('.' + classNames.menuProduct.imageVisible);
-
-              }
             }
             else{
 
-              for(let activeImage of activeImages){
+              activeImage.classList.remove('active');
 
-                activeImage.classList.remove('.' + classNames.menuProduct.imageVisible);
-
-              }
             }
           }
         }
