@@ -178,15 +178,17 @@
 
             const activeImage = thisProduct.imageWrapper.querySelector('.' + paramId + '-' + optionId);
 
-            if(activeImage && optionSelected){
-              
-              activeImage.classList.add('active');
+            if(activeImage) {
 
-            }
-            else{
+              if (optionSelected) {
 
-              activeImage.classList.remove('active');
+                activeImage.classList.add('active');
 
+              } else {
+                
+                activeImage.classList.remove('active');
+
+              }
             }
           }
         }
