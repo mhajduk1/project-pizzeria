@@ -60,9 +60,11 @@
       thisProduct.data = data;
       thisProduct.renderInMenu();
       thisProduct.getElements();
+      thisProduct.setValue(thisWidget.input.value);
       thisProduct.initAccordion();
       thisProduct.initOrderForm();
       thisProduct.processOrder();
+      thisProduct.initAmountWidget();
     }
     renderInMenu(){
       const thisProduct = this;
@@ -87,6 +89,7 @@
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.amountWidgetElem = select.menuProduct.amountWidget;
     }
     initAccordion(){
       const thisProduct = this;
@@ -185,7 +188,7 @@
                 activeImage.classList.add('active');
 
               } else {
-                
+
                 activeImage.classList.remove('active');
 
               }
@@ -198,8 +201,47 @@
       thisProduct.priceElem.innerHTML = price;
 
     }
-  }
 
+    initAmountWidget(){
+      const thisProduct = this;
+
+      thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
+
+      thisProduct.amountWidgetElem.addEventListener('updated', function(event){
+
+        thisProduct.processOrder();
+        console.log(event);
+        
+      });
+    }
+    
+    class AmountWidget {
+      constructor(element) {
+        const thisWidget = this ;
+        thisWidget.getElements(element);
+        thisWidget.value = settings.amountWidget.defaultValue;
+        thisWidget.setValue(thisWidget.input.value);
+        thisWidget.initActions(thisWidget.value);
+      }
+      getElements(element) {
+        const thisWidget = this;
+        thisWidget.element = element;
+        thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
+        thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
+        thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets.amount.linkIncrease);
+      }
+    }
+
+  setValue(value){
+    const thisWidget = this;
+
+    const newValue = perseInt(value);
+
+    /*TO DO: add validation */
+
+    thisWidget.value = newValue;
+    thisWidget.input.value = thisWidget.value;
+  }
   const app = {
     initMenu: function(){
       const thisApp = this;
