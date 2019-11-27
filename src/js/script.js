@@ -219,24 +219,6 @@
       });
     }
 
-
-    setValue(value) {
-      const thisWidget = this;
-
-      const newValue = parseInt(value);
-
-      /*TO DO: add validation */
-
-      if(thisWidget.value =! newValue && newValue <= settings.amountWidget.defaultMin && newValue >= settings.amountWidget.defaultMax){  
-        
-        thisWidget.value = newValue;
-      
-        thisWidget.announce();
-      }
-      thisWidget.input.value = thisWidget.value;
-    }
-  
-
     initActions() {
       const thisWidget = this;
     
@@ -261,6 +243,23 @@
       thisWidget.element.dispatchEvent(event);
     }
   }
+
+  setValue(value) {
+    const thisWidget = this;
+
+    const newValue = parseInt(value);
+
+    /*TO DO: add validation */
+
+    if(thisWidget.value =! newValue && newValue <= settings.amountWidget.defaultMin && newValue >= settings.amountWidget.defaultMax){  
+      
+      thisWidget.value = newValue;
+    
+      thisWidget.announce();
+    }
+    thisWidget.input.value = thisWidget.value;
+  }
+
   class AmountWidget {
     constructor(element) {
       const thisWidget = this;
