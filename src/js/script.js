@@ -357,12 +357,12 @@
       thisApp.initData();
       thisApp.initMenu();
     },
-    init: function(){
+    initCart: function(){
       const thisApp = this;
 
       const cartElem = document.querryselector(select.containerOf.cart);
       thisApp.cart = new Cart(cartelem);
-      
+
     }
   };
 
