@@ -27,7 +27,7 @@
     },
     widgets: {
       amount: {
-        input: 'input.amount', // CODE CHANGED
+        input: 'input[name="amount"]', // CODE CHANGED
         linkDecrease: 'a[href="#less"]',
         linkIncrease: 'a[href="#more"]',
       },
@@ -252,12 +252,40 @@
 
       });
     }
+    
+  }
+
+  class AmountWidget {
+    constructor(element) {
+      const thisWidget = this;
+
+      thisWidget.getElements(element);
+      thisWidget.setValue(thisWidget.input.value);
+      thisWidget.value = settings.amountWidget.defaultValue;
+      thisWidget.initActions(thisWidget.value);
+    }
+
+    getElements(element) {
+      const thisWidget = this;
+    
+      thisWidget.element = element;
+      thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
+      thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
+      thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets.amount.linkIncrease);
+    }
+
+    announce() {
+      const thisWidget = this;
+
+      const event = new Event('updated');
+      thisWidget.element.dispatchEvent(event);
+    }
 
     initActions() {
       const thisWidget = this;
     
-      thisWidget.input.addEventListener('click', function () {
-        thisWidget.setValue(thisWidget.input.Value);
+      thisWidget.input.addEventListener('change', function () {
+        thisWidget.setValue(thisWidget.input.value);
       });
 
       thisWidget.linkDecrease.addEventListener('click', function () {
@@ -270,49 +298,20 @@
       });
     }
 
-    announce() {
+    setValue(value) {
+
       const thisWidget = this;
-
-      const event = new Event('updated');
-      thisWidget.element.dispatchEvent(event);
-    }
-  }
-//problem with the bracelets NO IDEA WHY
-  setValue(value) {
-
-    const thisWidget = this;
-
-    const newValue = parseInt(value);
-
-    /*TO DO: add validation */
-
-    if(thisWidget.value =! newValue && newValue <= settings.amountWidget.defaultMin && newValue >= settings.amountWidget.defaultMax){  
+  
+      const newValue = parseInt(value);
+      /*TO DO: add validation */
+  
+      if(thisWidget.value ==! newValue && newValue <= settings.amountWidget.defaultMin && newValue >= settings.amountWidget.defaultMax){  
+        
+        thisWidget.value = newValue;
       
-      thisWidget.value = newValue;
-    
-      thisWidget.announce();
-    }
-    thisWidget.input.value = thisWidget.value;
-  }
-
-  class AmountWidget {
-    constructor(element) {
-      const thisWidget = this;
-      thisWidget.getElements(element);
-      thisWidget.setValue(thisWidget.input.value);
-      thisWidget.value = settings.amountWidget.defaultValue;
-      thisWidget.initActions(thisWidget.value);
-    }
-
-    getElements(element) {
-      const thisWidget = this;
-
-      thisWidget.value = settings.amountWidget.defaultValue;
-    
-      thisWidget.element = element;
-      thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
-      thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
-      thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets.amount.linkIncrease);
+        thisWidget.announce();
+      }
+      thisWidget.input.value = thisWidget.value;
     }
   }
 
@@ -357,13 +356,13 @@
       thisApp.initData();
       thisApp.initMenu();
     },
-    initCart: function(){
-      const thisApp = this;
+    // initCart: function(){
+    //   const thisApp = this;
 
-      const cartElem = document.querryselector(select.containerOf.cart);
-      thisApp.cart = new Cart(cartelem);
+    //   const cartElem = document.querryselector(select.containerOf.cart);
+    //   thisApp.cart = new Cart(cartelem);
 
-    }
+    // },
   };
 
   app.init();
