@@ -316,6 +316,23 @@
     }
   }
 
+  // class Cart {
+  //   constructor(element){
+  //     const thisCart = this;
+  //     thisCart.getElements(element);
+
+  //     console.log('new Cart', thisCart);
+  //   }
+  //   getElements(element){
+
+  //     const thisCart = this;
+
+  //     thisCart.dom = {};
+
+  //     thisCart.dom.wrapper = element;
+  //   }
+  // }
+
   const app = {
     initMenu: function () {
       const thisApp = this;
@@ -340,6 +357,13 @@
       thisApp.initData();
       thisApp.initMenu();
     },
+    init: function(){
+      const thisApp = this;
+
+      const cartElem = document.querryselector(select.containerOf.cart);
+      thisApp.cart = new Cart(cartelem);
+      
+    }
   };
 
   app.init();
