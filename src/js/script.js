@@ -248,7 +248,6 @@
       thisProduct.amountWidgetElem.addEventListener('updated', function (event) {
 
         thisProduct.processOrder();
-        console.log(event);
 
       });
     }
@@ -288,7 +287,7 @@
         thisWidget.setValue(thisWidget.input.value);
       });
 
-      thisWidget.linkDecrease.addEventListener('click', function () {
+      thisWidget.linkDecrease.addEventListener('click', function (event) {
         event.preventDefault();
         thisWidget.setValue(thisWidget.value - 1);
       });
@@ -307,7 +306,7 @@
   
       if(thisWidget.value ==! newValue && newValue <= settings.amountWidget.defaultMin && newValue >= settings.amountWidget.defaultMax){  
         
-        thisWidget.value = newValue;
+        thisWidget.value = thisWidget + newValue;
       
         thisWidget.announce();
       }
