@@ -312,22 +312,36 @@
     }
   }
 
-  // class Cart {
-  //   constructor(element){
-  //     const thisCart = this;
-  //     thisCart.getElements(element);
+  class Cart {
+    constructor(element){
+      const thisCart = this;
 
-  //     console.log('new Cart', thisCart);
-  //   }
-  //   getElements(element){
+      thisCart.products = [];
 
-  //     const thisCart = this;
+      thisCart.getElements(element);
+      thisCart.initActions();
 
-  //     thisCart.dom = {};
+      console.log('new Cart', thisCart);
+    }
+    getElements(element){
 
-  //     thisCart.dom.wrapper = element;
-  //   }
-  // }
+      const thisCart = this;
+
+      thisCart.dom = {};
+
+      thisCart.dom.wrapper = element;
+      thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
+      
+    }
+
+    initActions(){
+      const thisCart = this;
+
+      thisCart.dom.toggleTrigger.addEventListener('click', function(){
+        thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
+      });
+    }
+  }
 
   const app = {
     initMenu: function () {
@@ -353,14 +367,15 @@
       thisApp.initData();
       thisApp.initMenu();
     },
-    // initCart: function(){
-    //   const thisApp = this;
+    initCart: function(){
+      const thisApp = this;
 
-    //   const cartElem = document.querryselector(select.containerOf.cart);
-    //   thisApp.cart = new Cart(cartelem);
+      const cartElem = document.querySelector(select.containerOf.cart);
+      thisApp.cart = new Cart(cartElem);
 
-    // },
+    },
   };
 
   app.init();
+  app.initCart();
 }
