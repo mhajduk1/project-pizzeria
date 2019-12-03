@@ -259,8 +259,8 @@
       const thisWidget = this;
 
       thisWidget.getElements(element);
-      thisWidget.setValue(thisWidget.input.value);
       thisWidget.value = settings.amountWidget.defaultValue;
+      thisWidget.setValue(thisWidget.input.value);
       thisWidget.initActions(thisWidget.value);
     }
 
@@ -298,19 +298,17 @@
     }
 
     setValue(value) {
-
       const thisWidget = this;
-  
-      const newValue = parseInt(value);
-      /*TO DO: add validation */
-  
-      if(thisWidget.value ==! newValue && newValue <= settings.amountWidget.defaultMin && newValue >= settings.amountWidget.defaultMax){  
-        
-        thisWidget.value = thisWidget + newValue;
-      
-        thisWidget.announce();
+
+      const newVal = parseInt(value);
+
+      if (isNaN(newVal) || newVal > settings.amountWidget.defaultMax || newVal < settings.amountWidget.defaultMin) {
+        thisWidget.input.value = thisWidget.value;
+      } else {
+        thisWidget.value = newVal;
+        thisWidget.input.value = newVal;
+        this.announce();
       }
-      thisWidget.input.value = thisWidget.value;
     }
   }
 
