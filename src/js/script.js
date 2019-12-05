@@ -369,7 +369,7 @@
       thisCart.element = utils.createDOMFromHTML(generatedHTML);
 
       /*find menu container */
-      thisCart.dom.productList = document.querySelector(select.containerOf.menu);
+      thisCart.dom.productList = document.querySelector(select.cart.productList);
 
       /*add element to menu */
       thisCart.dom.productList.appendChild(thisCart.element);
@@ -414,7 +414,7 @@
     initCart: function(){
       const thisApp = this;
 
-      const cartElem = document.querySelector(select.cart.productList);
+      const cartElem = document.querySelector(select.containerOf.cart);
       thisApp.cart = new Cart(cartElem);
 
     },
