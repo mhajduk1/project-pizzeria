@@ -96,8 +96,8 @@
       thisProduct.getElements();
       thisProduct.initAccordion();
       thisProduct.initOrderForm();
-      thisProduct.processOrder();
       thisProduct.initAmountWidget();
+      thisProduct.processOrder();
     }
 
     renderInMenu() {
@@ -248,11 +248,10 @@
           }
         }
       }
-
+      
       /* multiply price by amount */
       thisProduct.priceSingle = price;
-      //console.log(thisProduct.amountWidget.value);
-      thisProduct.priceElem = thisProduct.priceSingle * thisProduct.amountWidget.value;
+      thisProduct.price = thisProduct.priceSingle * thisProduct.amountWidget.value;
 
       /* set the contents of thisProduct.priceElem to be the value of variable price */ 
       thisProduct.priceElem.innerHTML = thisProduct.price;
@@ -263,7 +262,7 @@
       const thisProduct = this;
 
       thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
-      thisProduct.amountWidgetElem.addEventListener('updated', function (event) {
+      thisProduct.amountWidgetElem.addEventListener('updated', function () {
 
         thisProduct.processOrder();
 
@@ -362,10 +361,9 @@
     }
 
     add(menuProduct){
-
       const thisCart = this;
       /*generate HTML based on template */
-      const generatedHTML = templates.menuProduct(thisCart);
+      const generatedHTML = templates.cartProduct(menuProduct);
 
       /*create element using utils.createElementFromHTML */
       thisCart.element = utils.createDOMFromHTML(generatedHTML);
@@ -374,7 +372,8 @@
       thisCart.dom.productList = document.querySelector(select.containerOf.menu);
 
       /*add element to menu */
-      menuProduct.appendChild(thisCart.element);
+      thisCart.dom.productList.appendChild(thisCart.element);
+
 
       console.log('adding product', menuProduct);
     }
@@ -415,7 +414,7 @@
     initCart: function(){
       const thisApp = this;
 
-      const cartElem = document.querySelector(select.containerOf.cart);
+      const cartElem = document.querySelector(select.cart.productList);
       thisApp.cart = new Cart(cartElem);
 
     },
