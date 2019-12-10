@@ -27,7 +27,7 @@
     },
     widgets: {
       amount: {
-        input: 'input[name="amount"]', // CODE CHANGED
+        input: 'input.amount', // CODE CHANGED
         linkDecrease: 'a[href="#less"]',
         linkIncrease: 'a[href="#more"]',
       },
@@ -260,6 +260,8 @@
 
     initAmountWidget() {
       const thisProduct = this;
+      console.log(thisProduct.amountWidget);
+
 
       thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
       thisProduct.amountWidgetElem.addEventListener('updated', function () {
