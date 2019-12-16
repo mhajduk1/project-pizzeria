@@ -401,6 +401,11 @@
       thisCart.dom.toggleTrigger.addEventListener('click', function(){
         thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
       });
+
+      console.log(thisCart.dom.productList);
+      thisCart.dom.productList.addEventListener('click', function(){
+        thisCart.remove(event.detail.cartProduct);
+      });
       
     }
 
@@ -453,6 +458,7 @@
 
       thisCartProduct.getElements(element);
       thisCartProduct.initAmountWidget();
+      thisCartProduct.initActions();
 
       // console.log('new cart product',thisCartProduct);
       // console.log('product data', menuProduct);
