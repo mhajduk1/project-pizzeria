@@ -360,7 +360,7 @@
 
       thisCart.dom.wrapper = element;
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
-      thisCart.dom.productList; 
+      thisCart.dom.productList = thisCart.dom.wrapper.querySelector(select.cart.productList); 
       thisCart.renderTotalsKeys = ['totalNumber', 'totalPrice', 'subtotalPrice', 'deliveryFee'];
 
       for(let key of thisCart.renderTotalsKeys){
@@ -402,8 +402,10 @@
         thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
       });
 
-      console.log(thisCart.dom.productList);
-      thisCart.dom.productList.addEventListener('click', function(){
+      thisCart.dom.productList.addEventListener('updated', function(){
+        thisCart.update();
+      });
+      thisCart.dom.productList.addEventListener('remove', function(event){
         thisCart.remove(event.detail.cartProduct);
       });
       
@@ -437,7 +439,7 @@
     remove(cartProduct){
       const thisCart = this;
       const index = thisCart.products.indexOf(cartProduct);
-      thisCart.products.splice(index);
+      thisCart.products.splice(index, 1);
       cartProduct.dom.wrapper.remove();
       thisCart.update();
     }
@@ -505,7 +507,7 @@
     initActions(){
       const thisCartProduct = this;
       
-      thisCartProduct.dom.remove.addEventListener('click', function(){
+      thisCartProduct.dom.remove.addEventListener('click', function(event){
         event.preventDefault();
         thisCartProduct.remove();
         console.log('cliked remove');
