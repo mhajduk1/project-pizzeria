@@ -541,7 +541,7 @@
       const thisApp = this;
 
       thisApp.data = {};
-      const url = settings.db.url + '/' + settings.db.product;
+      const url = select.db.url + '/' + select.db.product;
       fetch(url)
         .then(function(rawResponse){
           return rawResponse.json();
@@ -567,7 +567,6 @@
       // console.log('settings:', settings);
       // console.log('templates:', templates);
       thisApp.initData();
-      thisApp.initMenu();
     },
     initCart: function(){
       const thisApp = this;
