@@ -469,7 +469,7 @@
         products: [],
       };
       for(let product of thisCart.products){
-        payload.product.push(product.getData());
+        payload.products.push(product.getData());
       }
 
       const options = {
