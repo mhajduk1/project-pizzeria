@@ -76,7 +76,10 @@ const app = {
     const thisApp = this;
 
     const bookingElem = document.querySelector(select.containerOf.booking);
+    console.log(bookingElem);
     thisApp.booking = new Booking(bookingElem);
+
+    console.log('book initialized');
   },
   initData: function () {
     const thisApp = this;

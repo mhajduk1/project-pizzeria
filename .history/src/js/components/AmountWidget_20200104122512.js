@@ -13,7 +13,7 @@ class AmountWidget {
 
   getElements(element) {
     const thisWidget = this;
-
+    
     thisWidget.element = element;
     thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
     thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
@@ -31,7 +31,7 @@ class AmountWidget {
 
   initActions() {
     const thisWidget = this;
-
+    
     thisWidget.input.addEventListener('change', function () {
       thisWidget.setValue(thisWidget.input.value);
     });

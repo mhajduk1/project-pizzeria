@@ -1,7 +1,7 @@
 import {select, classNames} from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
-import Booking from './components/Booking.js';
+import Booking.js from './components/Booking.js';
 
 const app = {
   initPages: function(){
@@ -23,7 +23,7 @@ const app = {
       }
     }
 
-    thisApp.activatePage(pageMatchingHash);
+    thisApp.activatePage(idFromHash);
 
     for(let link of thisApp.navLinks){
       link.addEventListener('click', function(event){
@@ -77,6 +77,7 @@ const app = {
 
     const bookingElem = document.querySelector(select.containerOf.booking);
     thisApp.booking = new Booking(bookingElem);
+
   },
   initData: function () {
     const thisApp = this;
@@ -110,7 +111,6 @@ const app = {
 
     thisApp.initPages();
     thisApp.initData();
-    thisApp.initBooking();
   },
   initCart: function(){
     const thisApp = this;
