@@ -1,45 +1,15 @@
 import {select, classNames} from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
-import Booking from './components/Booking.js';
-
 const app = {
   initPages: function(){
     const thisApp = this;
 
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
 
-    thisApp.navLinks = document.querySelectorAll(select.nav.links);
+    thisApp.navLinks = document.querySelectorAll(select.nav.links).children;
 
-
-    const idFromHash = window.location.hash.replace('#/', '');
-
-    let pageMatchingHash = thisApp.pages[0].id;
-
-    for(let page of thisApp.pages){
-      if(page.id == idFromHash){
-        pageMatchingHash = page.id;
-        break;
-      }
-    }
-
-    thisApp.activatePage(idFromHash);
-
-    for(let link of thisApp.navLinks){
-      link.addEventListener('click', function(event){
-        const clickedElement = this;
-        event.preventDefault();
-
-        // get page id from href attribute
-        const id = clickedElement.getAttribute('href').replace('#', '');
-
-        //run thisApp.activatePage with that id
-        thisApp.activatePage(id);
-
-        //change URL hash
-        window.location.hash = '#' + id;
-      });
-    }
+    thisApp.activatePage(thisApp.pages[0].id);
 
   },
 
@@ -70,14 +40,6 @@ const app = {
       new Product(thisApp.data.products[productData].id, thisApp.data.products[productData]);
 
     }
-  },
-
-  initBooking: function(){
-    const thisApp = this;
-
-    const bookingElem = document.querySelector(select.containerOf.booking);
-    thisApp.booking = new Booking(bookingElem);
-
   },
   initData: function () {
     const thisApp = this;

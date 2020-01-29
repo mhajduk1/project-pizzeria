@@ -1,7 +1,6 @@
 import {select, classNames} from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
-import Booking from './components/Booking.js';
 
 const app = {
   initPages: function(){
@@ -13,6 +12,7 @@ const app = {
 
 
     const idFromHash = window.location.hash.replace('#/', '');
+    console.log('idFromHasz', idFromHash);
 
     let pageMatchingHash = thisApp.pages[0].id;
 
@@ -70,14 +70,6 @@ const app = {
       new Product(thisApp.data.products[productData].id, thisApp.data.products[productData]);
 
     }
-  },
-
-  initBooking: function(){
-    const thisApp = this;
-
-    const bookingElem = document.querySelector(select.containerOf.booking);
-    thisApp.booking = new Booking(bookingElem);
-
   },
   initData: function () {
     const thisApp = this;
