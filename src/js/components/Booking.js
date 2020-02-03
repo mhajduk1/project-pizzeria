@@ -20,8 +20,6 @@ class Booking {
 
     thisBooking.dom.peopleAmount = thisBooking.dom.wrapper.querySelector(select.booking.peopleAmount);
     thisBooking.dom.hoursAmount = thisBooking.dom.wrapper.querySelector(select.booking.hoursAmount);
-
-
   }
   initWidgets(){
     const thisBooking = this;
