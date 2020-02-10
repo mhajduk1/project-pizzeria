@@ -1,7 +1,7 @@
 import {templates, select} from '../settings.js';
 import utils from '../utils.js';
 import AmountWidget from './AmountWidget.js';
-import DataPicker from './DataPicker.js';
+import DatePicker from './DatePicker.js';
 import HourPicker from './HourPicker.js';
 class Booking {
   constructor(bookingElem) {
@@ -30,7 +30,7 @@ class Booking {
 
     thisBooking.peopleAmount = new AmountWidget(thisBooking.dom.peopleAmount);
     thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount);
-    thisBooking.dataPicker = new DataPicker(thisBooking.dom.datePicker);
+    thisBooking.DatePicker = new DatePicker(thisBooking.dom.datePicker);
     thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
   }
 }

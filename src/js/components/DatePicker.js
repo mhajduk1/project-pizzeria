@@ -1,7 +1,8 @@
+/* global flatpickr*/
 import BaseWidget from  './BaseWidget.js';
 import utils from '../utils.js';
 import { select, settings } from '../settings.js';
-export class DataPicker extends BaseWidget {
+export class DatePicker extends BaseWidget {
   constructor(wrapper) {
     super(wrapper, utils.dateToStr(new Date()));
     const thisWidget = this;
@@ -48,4 +49,4 @@ export class DataPicker extends BaseWidget {
   renderValue() {}
 }
 
-export default DataPicker;
+export default DatePicker;
