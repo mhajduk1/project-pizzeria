@@ -2,7 +2,7 @@
 export const select = {
   templateOf: {
     menuProduct: '#template-menu-product',
-    cartProduct: '#template-cart-product', 
+    cartProduct: '#template-cart-product',
     bookingWidget: '#template-booking-widget',
   },
   containerOf: {
@@ -26,7 +26,7 @@ export const select = {
   },
   widgets: {
     amount: {
-      input: 'input.amount', 
+      input: 'input.amount',
       linkDecrease: 'a[href="#less"]',
       linkIncrease: 'a[href="#more"]',
     },
@@ -40,7 +40,7 @@ export const select = {
       output: '.output',
     },
   },
-  
+
   cart: {
     productList: '.cart__order-summary',
     toggleTrigger: '.cart__summary',
@@ -63,6 +63,10 @@ export const select = {
     peopleAmount: '.people-amount',
     hoursAmount: '.hours-amount',
     tables: '.floor-plan .table',
+    formSubmit: '.order-confirmation [type="submit"]',
+    phone: '.phone-number [name="phone"]',
+    email: '.email [name="email"]',
+    starters: '.starters',
   },
   nav: {
     links: '.main-nav a',
@@ -79,7 +83,7 @@ export const select = {
     repeatParam: 'repeat_ne=false',
   },
 };
-  
+
 export const classNames = {
   menuProduct: {
     wrapperActive: 'active',
@@ -99,7 +103,7 @@ export const classNames = {
     active: 'active',
   },
 };
-  
+
 export const settings = {
   hours: {
     open: 12,
@@ -109,7 +113,7 @@ export const settings = {
     defaultValue: 1,
     defaultMin: 1,
     defaultMax: 9,
-  }, 
+  },
   datePicker: {
     maxDaysInFuture: 14,
   },
@@ -120,7 +124,7 @@ export const settings = {
     tableIdAttribute: 'data-table',
   },
 };
-  
+
 export const templates = {
   menuProduct: Handlebars.compile(document.querySelector(select.templateOf.menuProduct).innerHTML),
   cartProduct: Handlebars.compile(document.querySelector(select.templateOf.cartProduct).innerHTML),
