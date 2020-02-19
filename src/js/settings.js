@@ -64,8 +64,8 @@ export const select = {
     hoursAmount: '.hours-amount',
     tables: '.floor-plan .table',
     formSubmit: '.order-confirmation [type="submit"]',
-    phone: '.phone [type="phone"]',
-    email: '.email [type="email"]',
+    phone: '[name="phone"]',
+    email: '[name="address"]',
     starters: '.starters',
   },
   nav: {

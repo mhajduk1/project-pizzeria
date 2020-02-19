@@ -195,7 +195,6 @@ class Booking {
 
   sendBooking(){
     const thisBooking = this;
-    console.log(thisBooking.dom.phone);
 
     const reservationInfo = {
       table: thisBooking.tableNumber,
@@ -203,8 +202,8 @@ class Booking {
       hour: thisBooking.hourPicker.value,
       duration: thisBooking.hoursAmount.value,
       people: thisBooking.peopleAmount.value,
-      phone: thisBooking.dom.phone,
-      email: thisBooking.dom.email,
+      phone: thisBooking.dom.phone.value,
+      email: thisBooking.dom.email.value,
       starters: [],
     };
 
