@@ -16,7 +16,6 @@ class Booking {
 
     const startDateParam = select.db.dateStartParamKey + '=' + utils.dateToStr(thisBooking.DatePicker.minDate);
     const endDateParam = select.db.dateEndParamKey + '=' + utils.dateToStr(thisBooking.DatePicker.maxDate);
-
     const params = {
       booking:[
         startDateParam,
@@ -103,7 +102,6 @@ class Booking {
 
     const startHour = utils.hourToNumber(hour);
 
-
     for(let hourBlock = startHour; hourBlock < startHour + duration; hourBlock += 0.5){
       //console.log('loop', hourBlock);
 
@@ -112,7 +110,6 @@ class Booking {
       }
       thisBooking.booked[date][hourBlock].push(table);
     }
-
   }
 
   updateDOM(){
@@ -133,7 +130,6 @@ class Booking {
       if(!isNaN(tableId)){
         tableId = parseInt(tableId);
       }
-
       if(!allAvailable &&
         thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId)
       ){
@@ -174,18 +170,17 @@ class Booking {
     thisBooking.dom.wrapper.addEventListener('updated', function(){
       thisBooking.updateDOM();
     });
-    thisBooking.dom.submit.addEventListener('clicked', function(){
+    thisBooking.dom.submit.addEventListener('click', function(event){
       event.preventDefault();
       thisBooking.sendBooking();
     });
     thisBooking.tableVerification();
-
   }
   tableVerification(){
     const thisBooking = this;
 
     for(let table of thisBooking.dom.tables){
-      table.addEventListener('clicked', function(event){
+      table.addEventListener('click', function(event){
         event.preventDefault();
         if(table.classList.contains(classNames.booking.tableBooked)){
           return alert('This table is already booked, please choose another one.');
@@ -200,15 +195,16 @@ class Booking {
 
   sendBooking(){
     const thisBooking = this;
+    console.log(thisBooking.dom.phone);
 
     const reservationInfo = {
       table: thisBooking.tableNumber,
-      date: thisBooking.datePicker.value,
+      date: thisBooking.DatePicker.value,
       hour: thisBooking.hourPicker.value,
       duration: thisBooking.hoursAmount.value,
       people: thisBooking.peopleAmount.value,
-      phone: thisBooking.dom.phone.value,
-      email: thisBooking.dom.email.value,
+      phone: thisBooking.dom.phone,
+      email: thisBooking.dom.email,
       starters: [],
     };
 
@@ -219,9 +215,6 @@ class Booking {
     }
 
     const sendBookingUrl = select.db.url + '/' + select.db.booking;
-
-
-
     const options = {
       method: 'POST',
       headers: {
@@ -236,9 +229,10 @@ class Booking {
       })
       .then(function(parsedResponse) {
         console.log('parsedResponse: ', parsedResponse);
+        thisBooking.getData();
+
       });
 
-    thisBooking.getData();
   }
 }
 
