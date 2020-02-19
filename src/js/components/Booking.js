@@ -197,7 +197,7 @@ class Booking {
     const thisBooking = this;
 
     const reservationInfo = {
-      table: thisBooking.tableNumber,
+      table: parseInt(thisBooking.tableNumber),
       date: thisBooking.DatePicker.value,
       hour: thisBooking.hourPicker.value,
       duration: thisBooking.hoursAmount.value,
