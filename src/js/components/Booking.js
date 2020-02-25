@@ -31,14 +31,12 @@ class Booking {
         endDateParam,
       ],
     };
-    // console.log('getData params', params);
     const urls = {
       booking:       select.db.url + '/' + select.db.booking + '?' + params.booking.join('&'),
       eventsCurrent: select.db.url + '/' + select.db.event   + '?' + params.eventCurrent.join('&'),
       eventsRepeat:  select.db.url + '/' + select.db.event   + '?' + params.eventRepeat.join('&'),
     };
 
-    // console.log('getData urls', urls);
     Promise.all([
       fetch(urls.booking),
       fetch(urls.eventsCurrent),
@@ -56,9 +54,6 @@ class Booking {
         ]);
       })
       .then(function([bookings, eventsCurrent, eventsRepeat]){
-        // console.log(bookings);
-        // console.log(eventsCurrent);
-        // console.log(eventsRepeat);
         thisBooking.parseData(bookings, eventsCurrent, eventsRepeat);
       })
       .catch(function(error){
@@ -90,7 +85,6 @@ class Booking {
       }
     }
     thisBooking.updateDOM();
-    // console.log('thisBooking.booked', thisBooking.booked);
   }
 
   makeBooked(date,hour,duration,table){
@@ -103,7 +97,6 @@ class Booking {
     const startHour = utils.hourToNumber(hour);
 
     for(let hourBlock = startHour; hourBlock < startHour + duration; hourBlock += 0.5){
-      //console.log('loop', hourBlock);
 
       if(typeof thisBooking.booked[date][hourBlock] == 'undefined'){
         thisBooking.booked[date][hourBlock] = [];
@@ -226,8 +219,7 @@ class Booking {
       .then(function(response) {
         return response.json();
       })
-      .then(function(parsedResponse) {
-        console.log('parsedResponse: ', parsedResponse);
+      .then(function() {
         thisBooking.getData();
 
       });
