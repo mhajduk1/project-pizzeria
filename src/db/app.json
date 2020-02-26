@@ -270,7 +270,7 @@
     "image": {
       "title": "image_1",
       "alt": "image_1",
-      "source": "./images/mainPage/pizza-3.jpg"
+      "source": "./images/mainPage/pizza-4.jpg"
     }
   },
   {
@@ -278,7 +278,7 @@
     "image": {
       "title": "image_2",
       "alt": "image_2",
-      "source": "./images/mainPage/pizza-4.jpg"
+      "source": "./images/mainPage/pizza-5.jpg"
     }
   },
   {
@@ -286,7 +286,7 @@
     "image": {
       "title": "image_3",
       "alt": "image_3",
-      "source": "./images/mainPage/pizza-5.jpg"
+      "source": "./images/mainPage/pizza-6.jpg"
     }
   }
 ]

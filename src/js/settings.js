@@ -12,7 +12,7 @@ export const select = {
     cart: '#cart',
     pages: '#pages',
     booking: '.booking-wrapper',
-    mainPage: '.mainPage-wrapper',
+    mainPage: '#main-page',
     image: '.gallery-wrapper',
   },
   all: {
@@ -69,7 +69,7 @@ export const select = {
     tables: '.floor-plan .table',
     formSubmit: '.order-confirmation [type="submit"]',
     phone: '[name="phone"]',
-    email: '[name="adress"]',
+    email: '[name="address"]',
     starters: '.starters',
   },
   nav: {
