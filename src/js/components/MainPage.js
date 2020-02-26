@@ -31,7 +31,6 @@ class MainPage{
 
     fetch(url)
       .then(function(rawResponse) {
-        console.log(rawResponse);
         return rawResponse.json();
       })
       .then(function(parsedResponse) {
@@ -50,7 +49,7 @@ class MainPage{
     //console.log(arrayConvertedToObject);
     const generatedHTML = templates.image({image: arrayConvertedToObject});
     thisMainPage.element = utils.createDOMFromHTML(generatedHTML);
-    //thisMainPage.imageList.appendChild(thisMainPage.element);
+    thisMainPage.imageList.appendChild(thisMainPage.element);
     //console.log(thisMainPage.element);
   }
 }
