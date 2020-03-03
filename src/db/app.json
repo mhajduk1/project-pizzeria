@@ -266,28 +266,109 @@
       "starters": ["lemonWater"]
     }
   ],
-  "gallery": [{
+  "gallery": [
+  {
+    "id": 1,
     "image": {
-      "title": "image_1",
-      "alt": "image_1",
-      "source": "./images/mainPage/pizza-4.jpg"
+      "title": "pizza_1",
+      "alt": "pizza_1",
+      "source": "./images/main/pizza-1.jpg"
     }
   },
   {
     "id": 2,
     "image": {
-      "title": "image_2",
-      "alt": "image_2",
-      "source": "./images/mainPage/pizza-5.jpg"
+      "title": "pizza_3",
+      "alt": "pizza_3",
+      "source": "./images/main/pizza-3.jpg"
     }
   },
   {
     "id": 3,
     "image": {
-      "title": "image_3",
-      "alt": "image_3",
-      "source": "./images/mainPage/pizza-6.jpg"
+      "title": "pizza_4",
+      "alt": "pizza_4",
+      "source": "./images/main/pizza-4.jpg"
+    }
+  },
+  {
+    "id": 4,
+    "image": {
+      "title": "pizza_5",
+      "alt": "pizza_5",
+      "source": "./images/main/pizza-5.jpg"
+    }
+  },
+  {
+    "id": 5,
+    "image": {
+      "title": "pizza_6",
+      "alt": "pizza_6",
+      "source": "./images/main/pizza-6.jpg"
+    }
+  },
+  {
+    "id": 6,
+    "image": {
+      "title": "pizza_7",
+      "alt": "pizza_7",
+      "source": "./images/main/pizza-7.jpg"
     }
   }
+],
+"opinions": [{
+  "id": 1,
+  "opinion": {
+    "title": "Amazing",
+    "text": "Great pizza, very tasty fresh donuts.",
+    "author": "FaZe Clan Rain",
+    "class": "opinionOne",
+    "active": "active"
+  },
+  "options": {
+    "data-opinion": "opinionOne",
+    "data-slajder": "1",
+    "class": "active"
+  }
+},
+{
+  "id": 2,
+  "opinion": {
+    "title": "Wonderfull",
+    "text": "Nice salad,loved the cofffe.",
+    "author": "FaZe Clan Niko",
+    "class": "opinionTwo"
+  },
+  "options": {
+    "data-opinion": "opinionTwo",
+    "data-slajder": "2"
+  }
+},
+{
+  "id": 3,
+  "opinion": {
+    "title": "Professional",
+    "text": "Great place with the best pizza i have ever eaten.",
+    "author": "FaZe Clan Olofmeister",
+    "class": "opinionThree"
+  },
+  "options": {
+    "data-opinion": "opinionThree",
+    "data-slajder": "3"
+  }
+},
+{
+  "id": 4,
+  "opinion": {
+    "title": "Professional",
+    "text": "Breakfast was amaizing as well as pizza.",
+    "author": "FaZe Clan Coldzera",
+    "class": "opinionFour"
+  },
+  "options": {
+    "data-opinion": "opinionFour",
+    "data-slajder": "4"
+  }
+}
 ]
 }

@@ -22,22 +22,32 @@ class MainPage{
     const thisMainPage = this;
 
     thisMainPage.imagesList = document.querySelector(select.containerOf.image);
+    thisMainPage.opinionList = document.querySelector(select.containerOf.opinions);
   }
   getData(){
     const thisMainPage = this;
 
-    thisMainPage.imagesList = {};
-    const url = select.db.url + '/' + select.db.gallery;
+    const urlFirst = select.db.url + '/' + select.db.gallery;
+    const urlSecond = select.db.url + '/' + select.db.opinions;
 
-    fetch(url)
+    fetch(urlFirst)
       .then(function(rawResponse) {
         return rawResponse.json();
       })
       .then(function(parsedResponse) {
         thisMainPage.dataImages = parsedResponse;
-        console.log('data from API: ', thisMainPage.dataImages);
+        //console.log('data from API: ', thisMainPage.dataImages);
         thisMainPage.renderImagesList();
       });
+    fetch(urlSecond)
+      .then(function (rawResponse) {
+        return rawResponse.json();
+      })
+      .then(function (parsedResponse) {
+        thisMainPage.dataOpinions = parsedResponse;
+        thisMainPage.renderOpinionsList();
+      });
+
   }
   renderImagesList(){
     const thisMainPage = this;
@@ -48,9 +58,82 @@ class MainPage{
     const arrayConvertedToObject = Object.assign({}, mappedImages);
     //console.log(arrayConvertedToObject);
     const generatedHTML = templates.image({image: arrayConvertedToObject});
-    thisMainPage.element = utils.createDOMFromHTML(generatedHTML);
-    thisMainPage.imageList.appendChild(thisMainPage.element);
     //console.log(thisMainPage.element);
+    thisMainPage.element = utils.createDOMFromHTML(generatedHTML);
+    //console.log(templates.image);
+    //console.log(thisMainPage.element);
+    thisMainPage.imagesList.appendChild(thisMainPage.element);
+    //console.log(thisMainPage.element);
+  }
+  renderOpinionsList() {
+    const thisMainPage = this;
+
+    const mappedOpinons = thisMainPage.dataOpinions.map(function(opinionObject) {
+      return opinionObject.opinion;
+    });
+    const mappedOptions = thisMainPage.dataOpinions.map(function(opinionObject) {
+      return opinionObject.options;
+    });
+
+    const opinionsConvertedToObject = Object.assign({}, mappedOpinons);
+    const optionsConvertedToObject = Object.assign({}, mappedOptions);
+
+    const opinionHTML = templates.opinions({opinion: opinionsConvertedToObject});
+    const optionsHTML = templates.options({options: optionsConvertedToObject});
+
+    thisMainPage.opinions = utils.createDOMFromHTML(opinionHTML);
+    thisMainPage.options = utils.createDOMFromHTML(optionsHTML);
+
+    thisMainPage.opinionsList.appendChild(thisMainPage.opinions);
+    thisMainPage.opinionsList.appendChild(thisMainPage.options);
+
+    thisMainPage.initSlaider();
+  }
+  initSlaider(){
+    const thisMainPage = this;
+    thisMainPage.circleList = document.querySelectorAll(select.main.circle);
+    for(let circle of thisMainPage.circleList) {
+      circle.addEventListener('click', function(event){
+        event.preventDefault();
+        thisMainPage.changeOpinion();
+        thisMainPage.changeCircle();
+      });
+    }
+    thisMainPage.opinions = document.querySelectorAll('.opinion');
+
+    let opinionNumber = 0;
+
+    setInterval(function(){
+      let selectOpinion = thisMainPage.opinions[opinionNumber];
+      let selectCircle = thisMainPage.circleList[opinionNumber];
+      selectOpinion.classList.remove('active');
+      selectCircle.classList.remove('active');
+
+      if (opinionNumber >= thisMainPage.opinions.length - 1 ) {
+        opinionNumber = 0;
+      }
+      else {
+        opinionNumber += 1;
+      }
+      console.log(opinionNumber);
+      console.log(selectOpinion);
+      selectCircle = thisMainPage.circleList[opinionNumber];
+      selectCircle.classList.add('active');
+    }, 3000);
+  }
+  changeOpinion() {
+    const clickedElement = event.target;
+    const opinionClass = clickedElement.getAttribute('data-option');
+    const selectOpinion = document.querySelector('.' + opinionClass);
+    const activeOpinion = document.querySelector('.option.active');
+    activeOpinion.classList.remove('active');
+    selectOpinion.classList.add('active');
+  }
+  changeCircle(){
+    const clickedElement = event.target;
+    const activeCircle = document.querySelector('.carusel-option .active');
+    activeCircle.classList.remove('active');
+    clickedElement.classList.add('active');
   }
 }
 export default MainPage;

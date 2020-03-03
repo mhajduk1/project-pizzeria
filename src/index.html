@@ -251,9 +251,11 @@
       <div class="row">
           <div class="link link-order">
             <a href="#order">ORDER ONLINE</a>
+            <p>Delicious food delivered to your door</p>
           </div>
           <div class="link link-booking">
             <a href="#booking">BOOK A TABLE</a>
+            <p>Delicious food on restaurant</p>
           </div>
       </div>
       <div class="row">
@@ -264,8 +266,12 @@
       </div>
       <div class="row">
           <div class="carusel">
+            <div class="corusel-image">
+              <img src="images/main/pizza-3.jpg">
+            </div>
           </div>
       </div>
+      <div class="carusel-slaider"></div>
       <div class="row">
           <div class="gallery-wrapper"></div>
       </div>
@@ -280,10 +286,34 @@
   <script id="template-image-element" type="text/x-handlebars-template">
     <div class="image-wrapper">
       {{#each image}}
-        <img src="{{source}}" class="gallery-image" alt="{{alt}}" title="{{title}}">
+      <div class="gallery-image">
+        <img src="{{source}}" alt="{{alt}}" title="{{title}}">
+        <i class="fas fa-share-alt"></i>
+        <i class="fas fa-heart"></i>
+      </div>
       {{/each}}
     </div>
   </script>
+  <script id="template-opinion-element" type="text/x-handlebars-template">
+    <div class="carusel-text">
+        {{#each opinion}}
+        <div class="opinion {{class}} {{active}}">
+          <h3>{{title}}</h3>
+          <p>{{text}}</p>
+          <p>{{author}}</p>
+      </div>
+      {{/each}}
+      </div>
+  </script>
+  <script id="template-opinion-option" type="text/x-handlebars-template">
+    <div class="carusel-option">
+      <ul>
+        {{#each options}}
+        <li data-opinion="{{data-opinion}}" data-slajder="{{data-slajder}}" class="{{class}}"></li>
+        {{/each}}
+      </ul>
+    </div>
+</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script src="vendor/range-slider.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

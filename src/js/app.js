@@ -78,6 +78,21 @@ const app = {
     const thisApp = this;
     const mainPageElem = document.querySelector(select.containerOf.mainPage);
     thisApp.mainPage = new MainPage(mainPageElem);
+
+    thisApp.mainLinks = document.querySelectorAll(select.main.links);
+
+    for (let link of thisApp.mainLinks) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        const clickedElement = this;
+
+        const id = clickedElement.getAttribute('href').replace('#', '');
+
+        thisApp.activatePage(id);
+
+        window.location.hash = '#/' + id;
+      });
+    }
   },
   initData: function () {
     const thisApp = this;
