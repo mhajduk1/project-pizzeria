@@ -68,14 +68,14 @@ class MainPage{
   renderOpinionsList() {
     const thisMainPage = this;
 
-    const mappedOpinons = thisMainPage.dataOpinions.map(function(opinionObject) {
+    const mappedOpinions = thisMainPage.dataOpinions.map(function(opinionObject) {
       return opinionObject.opinion;
     });
     const mappedOptions = thisMainPage.dataOpinions.map(function(opinionObject) {
       return opinionObject.options;
     });
 
-    const opinionsConvertedToObject = Object.assign({}, mappedOpinons);
+    const opinionsConvertedToObject = Object.assign({}, mappedOpinions);
     const optionsConvertedToObject = Object.assign({}, mappedOptions);
 
     const opinionHTML = templates.opinions({opinion: opinionsConvertedToObject});
@@ -83,9 +83,10 @@ class MainPage{
 
     thisMainPage.opinions = utils.createDOMFromHTML(opinionHTML);
     thisMainPage.options = utils.createDOMFromHTML(optionsHTML);
+    console.log(thisMainPage.opinions);
 
-    thisMainPage.opinionsList.appendChild(thisMainPage.opinions);
-    thisMainPage.opinionsList.appendChild(thisMainPage.options);
+    thisMainPage.opinions.appendChild(thisMainPage.opinions);
+    thisMainPage.options.appendChild(thisMainPage.options);
 
     thisMainPage.initSlaider();
   }
