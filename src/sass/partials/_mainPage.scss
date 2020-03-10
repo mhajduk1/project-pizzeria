@@ -101,14 +101,16 @@
 //CARUSEL SETTINGS//
 
 .carusel-slaider {
-  flex: 0 0 68.5%;
+  //flex: 0 0 68.5%;
+  display: inline;
 }
 
 .carusel-text {
-  height: 160px;
-  padding: 0 $base-size * 2;
-  text-align: justify;
-  position: relative;
+  display: inline;
+  // height: 160px;
+  // padding: 0 $base-size * 2;
+  // text-align: justify;
+  // position: relative;
 }
 
 .opinion {

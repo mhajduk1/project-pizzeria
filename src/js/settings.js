@@ -16,7 +16,7 @@ export const select = {
     booking: '.booking-wrapper',
     mainPage: '#main-page',
     image: '.gallery-wrapper',
-    opinions: '.carusel-slaider',
+    opinions: '.corusel-slider',
   },
   all: {
     menuProducts: '#product-list > .product',
@@ -80,7 +80,7 @@ export const select = {
   },
   main: {
     links: '.link a',
-    circle:'.carusel-option li',
+    circle:'.corusel-option li',
   },
   db: {
     url: '//localhost:3131',

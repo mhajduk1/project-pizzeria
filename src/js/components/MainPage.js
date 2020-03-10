@@ -83,16 +83,16 @@ class MainPage{
 
     thisMainPage.opinions = utils.createDOMFromHTML(opinionHTML);
     thisMainPage.options = utils.createDOMFromHTML(optionsHTML);
-    console.log(thisMainPage.opinions);
+    console.log(thisMainPage.options);
 
-    thisMainPage.opinions.appendChild(thisMainPage.opinions);
-    thisMainPage.options.appendChild(thisMainPage.options);
+    thisMainPage.opinionList.appendChild(thisMainPage.opinions);
+    //thisMainPage.options.appendChild(thisMainPage.options);
 
     thisMainPage.initSlaider();
   }
   initSlaider(){
     const thisMainPage = this;
-    thisMainPage.circleList = document.querySelectorAll(select.main.circle);
+    thisMainPage.circleList = thisMainPage.options.querySelectorAll('li');
     for(let circle of thisMainPage.circleList) {
       circle.addEventListener('click', function(event){
         event.preventDefault();
@@ -107,6 +107,7 @@ class MainPage{
     setInterval(function(){
       let selectOpinion = thisMainPage.opinions[opinionNumber];
       let selectCircle = thisMainPage.circleList[opinionNumber];
+      console.log(thisMainPage.circleList);
       selectOpinion.classList.remove('active');
       selectCircle.classList.remove('active');
 
@@ -132,7 +133,7 @@ class MainPage{
   }
   changeCircle(){
     const clickedElement = event.target;
-    const activeCircle = document.querySelector('.carusel-option .active');
+    const activeCircle = document.querySelector('.corusel-option .active');
     activeCircle.classList.remove('active');
     clickedElement.classList.add('active');
   }

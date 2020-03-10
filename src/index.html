@@ -84,8 +84,8 @@
             <input type="text" name="date">
           </div>
           <div class="hour-picker range-slider">
-              <div class="output"></div>
-              <label class="booking-option-title">Pick a time</label>
+            <div class="output"></div>
+            <label class="booking-option-title">Pick a time</label>
             <input type="range" name="hour" value="12" min="12" max="24" step="0.5">
           </div>
         </div>
@@ -265,13 +265,14 @@
         </div>
       </div>
       <div class="row">
-          <div class="carusel">
-            <div class="corusel-image">
-              <img src="images/main/pizza-3.jpg">
-            </div>
+        <div class="corusel">
+          <div class="corusel-image">
+            <img src="images/main/pizza-3.jpg">
           </div>
+        </div>
+        <div class="corusel-slider"></div>
+
       </div>
-      <div class="carusel-slaider"></div>
       <div class="row">
           <div class="gallery-wrapper"></div>
       </div>
@@ -295,7 +296,7 @@
     </div>
   </script>
   <script id="template-opinion-element" type="text/x-handlebars-template">
-    <div class="carusel-text">
+    <div class="corusel-text">
         {{#each opinion}}
         <div class="opinion {{class}} {{active}}">
           <h3>{{title}}</h3>
@@ -303,10 +304,10 @@
           <p>{{author}}</p>
       </div>
       {{/each}}
-      </div>
+    </div>
   </script>
   <script id="template-opinion-option" type="text/x-handlebars-template">
-    <div class="carusel-option">
+    <div class="corusel-option">
       <ul>
         {{#each options}}
         <li data-opinion="{{data-opinion}}" data-slajder="{{data-slajder}}" class="{{class}}"></li>
