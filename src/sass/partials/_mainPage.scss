@@ -116,14 +116,13 @@
 .opinion {
   color: $color-slaider;
   font-size: 12px;
-  opacity: 0;
   font-style: italic;
   padding: 15px;
   position: absolute;
-
+  visibility: hidden;
+  height: 100%;
   .active {
-    opacity: 100;
-    height: 100%;
+    visibility: visible !important;
   }
 }
 

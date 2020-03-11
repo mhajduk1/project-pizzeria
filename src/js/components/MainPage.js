@@ -108,7 +108,7 @@ class MainPage{
       let selectOpinion = thisMainPage.opinions[opinionNumber];
       let selectCircle = thisMainPage.circleList[opinionNumber];
       console.log(thisMainPage.circleList);
-      selectOpinion.classList.remove('active');
+      //selectOpinion.classList.remove('active');
       selectCircle.classList.remove('active');
 
       if (opinionNumber >= thisMainPage.opinions.length - 1 ) {
@@ -133,7 +133,7 @@ class MainPage{
   }
   changeCircle(){
     const clickedElement = event.target;
-    const activeCircle = document.querySelector('.corusel-option .active');
+    const activeCircle = document.querySelector('.carusel-option .active');
     activeCircle.classList.remove('active');
     clickedElement.classList.add('active');
   }
