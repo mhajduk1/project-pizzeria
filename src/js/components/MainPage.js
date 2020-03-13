@@ -23,6 +23,7 @@ class MainPage{
 
     thisMainPage.imagesList = document.querySelector(select.containerOf.image);
     thisMainPage.opinionList = document.querySelector(select.containerOf.opinions);
+    thisMainPage.carouselCircle = document.querySelector(select.containerOf.carouselCircle);
   }
   getData(){
     const thisMainPage = this;
@@ -88,16 +89,18 @@ class MainPage{
     thisMainPage.opinionList.appendChild(thisMainPage.opinions);
     //thisMainPage.options.appendChild(thisMainPage.options);
 
-    thisMainPage.initSlaider();
+    thisMainPage.initSlider();
   }
-  initSlaider(){
+  initSlider(){
     const thisMainPage = this;
     thisMainPage.circleList = thisMainPage.options.querySelectorAll('li');
     for(let circle of thisMainPage.circleList) {
+      thisMainPage.carouselCircle.appendChild(circle);
+      console.log(circle);
       circle.addEventListener('click', function(event){
         event.preventDefault();
-        thisMainPage.changeOpinion();
-        thisMainPage.changeCircle();
+        //thisMainPage.changeOpinion(event);
+        thisMainPage.changeCircle(event);
       });
     }
     thisMainPage.opinions = document.querySelectorAll('.opinion');
@@ -121,9 +124,10 @@ class MainPage{
       console.log(selectOpinion);
       selectCircle = thisMainPage.circleList[opinionNumber];
       selectCircle.classList.add('active');
+
     }, 3000);
   }
-  changeOpinion() {
+  changeOpinion(event) {
     const clickedElement = event.target;
     const opinionClass = clickedElement.getAttribute('data-option');
     const selectOpinion = document.querySelector('.' + opinionClass);
@@ -131,9 +135,10 @@ class MainPage{
     activeOpinion.classList.remove('active');
     selectOpinion.classList.add('active');
   }
-  changeCircle(){
+  changeCircle(event){
+    console.log('działa');
     const clickedElement = event.target;
-    const activeCircle = document.querySelector('.carusel-option .active');
+    const activeCircle = document.querySelector('.carousel-option .active');
     activeCircle.classList.remove('active');
     clickedElement.classList.add('active');
   }

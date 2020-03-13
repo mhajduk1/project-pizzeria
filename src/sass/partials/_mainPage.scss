@@ -13,7 +13,7 @@
 }
 
 .open-hours,
-.carusel,
+.carousel,
 .gallery-wrapper,
 .instagram {
   flex: 0 0 100%;
@@ -98,36 +98,37 @@
   }
 }
 
-//CARUSEL SETTINGS//
+//carousel SETTINGS//
 
-.carusel-slaider {
+.carousel-slaider {
   //flex: 0 0 68.5%;
   display: inline;
 }
 
-.carusel-text {
+.carousel-text {
   display: inline;
-  // height: 160px;
-  // padding: 0 $base-size * 2;
-  // text-align: justify;
-  // position: relative;
+  font-size: 25px;
+  //height: 160px;
+  text-align: justify;
+  position: relative;
 }
 
 .opinion {
   color: $color-slaider;
-  font-size: 12px;
   font-style: italic;
-  padding: 15px;
+  padding: 30px;
   position: absolute;
   visibility: hidden;
-  height: 100%;
-  .active {
-    visibility: visible !important;
-  }
+  //height: 100%;
+  display: inline-block;
+}
+
+.active {
+  visibility: visible;
 }
 
 
-.carusel-option {
+.carousel-option {
   padding: 0 30%;
 
   li {
@@ -210,12 +211,12 @@
   }
 }
 
-.carusel {
+.carousel {
   display: flex;
   margin: $base-size * 4 0;
 }
 
-.carusel-image {
+.carousel-image {
   flex: 0 0 31.5%;
 
   img {
