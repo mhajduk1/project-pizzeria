@@ -17,7 +17,7 @@ export const select = {
     mainPage: '#main-page',
     image: '.gallery-wrapper',
     opinions: '.carousel-slider',
-    carousel:'.carousel',
+    carouselContent:'.carousel-content',
     carouselCircle:'.carousel-circle',
   },
   all: {

@@ -100,17 +100,19 @@
 
 //carousel SETTINGS//
 
-.carousel-slaider {
-  //flex: 0 0 68.5%;
-  display: inline;
-}
+// .carousel-slaider {
+//   //flex: 0 0 68.5%;
+//   display: inline;
+// }
 
-.carousel-text {
-  display: inline;
+.carousel-slaider {
+  //display: inline;
   font-size: 25px;
-  //height: 160px;
+  height: 160px;
   text-align: justify;
   position: relative;
+
+
 }
 
 .opinion {
@@ -203,6 +205,11 @@
   }
 }
 
+.carousel-circle{
+  text-align: center;
+  display: inline;
+}
+
 .gallery-ikon i {
   font-size: 18px;
 
@@ -211,8 +218,11 @@
   }
 }
 
-.carousel {
+.carousel-content{
   display: flex;
+}
+
+.carousel {
   margin: $base-size * 4 0;
 }
 
