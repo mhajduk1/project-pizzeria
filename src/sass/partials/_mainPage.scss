@@ -206,8 +206,24 @@
 }
 
 .carousel-circle{
+  display: block;
+  height: 25px;
+  font-size: 50px;
   text-align: center;
-  display: inline;
+
+  li{
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    top: -25px;
+    padding: 0 5px;
+
+    &:hover {
+      cursor: pointer;
+      //background-color: red;
+      //wypozycjonować diva względem kropeczek
+    }
+  }
 }
 
 .gallery-ikon i {
